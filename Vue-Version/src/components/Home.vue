@@ -1,20 +1,24 @@
-<template>
-    <div id="home">
-        <header></header>
-    </div>
+<template lang="jade">
+    div#home
+        Header
 </template>
 
 <script>
+import Header from './Header.vue'
+
 export default {
     name: 'Home',
     data () {
         return {
-            message: "Abitsbrain"
+            title: "Abitsbrain"
         }
+    },
+    components: {
+        Header
     }
 }
 </script>
 
-<style>
+<style lang="stylus" scoped>
 
 </style>

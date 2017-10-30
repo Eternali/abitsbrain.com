@@ -1,7 +1,5 @@
-<template>
-    <div id="header">
-        <p>{{message}}</p>
-    </div>
+<template lang="jade">
+    p {{message}}
 </template>
 
 <script>
@@ -15,6 +13,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang="stylus" scoped>
 
 </style>
