@@ -1,0 +1,9 @@
+{
+    "uploadOnSave": true,
+    "hostname": "abitsbrain.com",
+    "port": 68,
+    "target": "/var/www/abitsbrain.com",
+    "username": "conrad",
+    "password": "ILove2Code",
+    "transport": "scp"
+}
