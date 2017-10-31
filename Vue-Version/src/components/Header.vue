@@ -5,6 +5,10 @@
 </template>
 
 <script>
+require('../scripts/p5.min.js')
+require('../scripts/background.js')
+
+
 export default {
     name: 'Header',
     data () {
