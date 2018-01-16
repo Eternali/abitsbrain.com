@@ -1,7 +1,7 @@
 <template lang="pug">
   div.footer
-
-    h3.maintext(v-html="copyright")
+    a(v-class="icon" v-href="href")
+    div.maintext(v-html="copyright")
 </template>
 
 <script>
@@ -27,8 +27,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 .footer
-  background #353535
-  margin 0
+  color #ffffff
   padding 20px 12px 20px 12px
 
 .maintext

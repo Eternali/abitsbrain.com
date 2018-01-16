@@ -25,10 +25,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="stylus">
 .home
+  margin -8px
   background #aaaaaa
+  text-align center
 
 h1, h2
-  font-weight normal
+  margin 0
+  font-weight strong
 
 ul
   list-style-type none
