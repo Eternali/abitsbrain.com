@@ -6,10 +6,10 @@ import Home from '@/components/Home'
 
 Vue.use(Router)
 Vue.use(Meta, {
-  keyName: 'metaInfo',  // component option name to look for meta info on
-  attribute: 'data-vue-meta',  // attribute name added to the tag observed
-  ssrAttribute: 'data-vue-meta-server-rendered',  // already server rendered
-  tagIDKeyName: 'vmid'  // property name used to determine whether to overwrite or append a tag
+  keyName: 'metaInfo', // component option name to look for meta info on
+  attribute: 'data-vue-meta', // attribute name added to the tag observed
+  ssrAttribute: 'data-vue-meta-server-rendered', // already server rendered
+  tagIDKeyName: 'vmid' // property name used to determine whether to overwrite or append a tag
 })
 Vue.use(BootstrapVue)
 

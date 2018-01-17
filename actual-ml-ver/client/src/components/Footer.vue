@@ -1,6 +1,6 @@
 <template lang="pug">
   div.footer
-    a(v-class="icon" v-href="href")
+    a.fa.footer-social(:class="this.links[0].icon" :href="this.links[0].href")
     div.maintext(v-html="copyright")
 </template>
 
@@ -23,20 +23,24 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="stylus">
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
-
 .footer
-  color #ffffff
+  height $footer-height
+  margin 0
+  vertical-align middle
+  background pink
   padding 20px 12px 20px 12px
 
-.maintext
-  text-align center
-  text-size 30px
-  font-family Arial
-  color #858585
+a.footer-social
+  padding-top 0.3em
+  text-decoration none
+  transform scale(3)
+  transition all 0.2s ease-in-out
 
-a
-  color #42b983
+.maintext
+  margin-top 1.6em
+  text-align center
+  font-size 18px
+  font-family Arial
+  color #454545
 
 </style>

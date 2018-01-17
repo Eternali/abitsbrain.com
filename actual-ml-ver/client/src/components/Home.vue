@@ -1,6 +1,14 @@
 <template lang="pug">
-  div.home(v-title="title")
-    h1 {{ msg }}
+  div.home
+    div.wrapper
+      div.container
+        div.row
+          div.col-sm
+          div.col-sm
+            h1.title {{ title }}
+            h2 {{ subtitle }}
+          div.col-sm
+        div.footer-push
 
     main-footer
 </template>
@@ -15,8 +23,8 @@ export default {
   name: 'Home',
   data () {
     return {
-      title: 'ABitsBrain | Home',
-      msg: 'Welcome to Abitsbrain.com'
+      title: 'ABitsBrain',
+      subtitle: 'Welcome to Abitsbrain.com'
     }
   }
 }
@@ -25,12 +33,19 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="stylus">
 .home
-  margin -8px
-  background #aaaaaa
+  min-height 100%
+  background #757575
   text-align center
 
-h1, h2
-  margin 0
+.wrapper
+  min-height "calc(100vh - %s)" % $footer-height
+
+.bubble
+  
+
+h1.title
+  background #454545
+  border-radius 10px
   font-weight strong
 
 ul
@@ -43,5 +58,8 @@ li
 
 a
   color #42b983
+
+.footer-push
+  height $footer-height
 
 </style>
