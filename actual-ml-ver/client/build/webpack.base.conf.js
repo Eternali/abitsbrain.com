@@ -84,7 +84,10 @@ module.exports = {
     new webpack.LoaderOptionsPlugin({
       options: {
         stylus: {
-          import: [path.resolve(__dirname, '../src/assets/stylesheets/globals.styl')]
+          import: [
+            path.resolve(__dirname, '../src/assets/stylesheets/globals.styl'),
+            path.resolve(__dirname, '../src/assets/stylesheets/colors.styl')
+          ]
         }
       }
     })

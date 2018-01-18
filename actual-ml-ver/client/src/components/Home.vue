@@ -5,7 +5,9 @@
         div.row
           div.col-sm
           div.col-sm
-            h1.title {{ title }}
+            div.title
+              div.bubble-title
+                h1 {{ title }}  
             h2 {{ subtitle }}
           div.col-sm
         div.footer-push
@@ -23,7 +25,7 @@ export default {
   name: 'Home',
   data () {
     return {
-      title: 'ABitsBrain',
+      title: 'A Bit\'s Brain',
       subtitle: 'Welcome to Abitsbrain.com'
     }
   }
@@ -34,30 +36,47 @@ export default {
 <style scoped lang="stylus">
 .home
   min-height 100%
-  background #757575
+  background $home-background
   text-align center
 
 .wrapper
   min-height "calc(100vh - %s)" % $footer-height
 
-.bubble
+// base bubble class
+[class*="bubble-"]
+  width 50%
   
+[class*="bubble-"]:after
+  content ""
+  display block
+  width 100%
+  height 0
+  padding-bottom 100%
+  border-radius 50%
+  box-shadow 0 4px 8px 0 rgba(0, 0, 0, 0.2)
 
-h1.title
-  background #454545
-  border-radius 10px
-  font-weight strong
+.title
+  transform scale(0.7)
 
-ul
-  list-style-type none
-  padding 0
+.bubble-title:after
+  margin-left 50%
+  background "radial-gradient(%s 5%, %s 75%)" % ($title-background-light $title-background-dark)
+  border 1px solid $title-background-border
 
-li
-  display inline-block
-  margin 0 10px
+.bubble-title h1
+  float left
+  width 100%
+  padding-top 50%
+  line-height 1em
+  margin-left 50%
+  margin-top -0.5em
+  font-size 3.6em
+  font-family MercadoOne
+  text-align center
+  color $title-color
 
 a
-  color #42b983
+  color $link-primary
 
 .footer-push
   height $footer-height

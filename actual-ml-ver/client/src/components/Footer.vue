@@ -27,20 +27,19 @@ export default {
   height $footer-height
   margin 0
   vertical-align middle
-  background pink
-  padding 20px 12px 20px 12px
+  background $footer-background
 
 a.footer-social
-  padding-top 0.3em
+  padding-top 1.2em
   text-decoration none
   transform scale(3)
   transition all 0.2s ease-in-out
 
 .maintext
-  margin-top 1.6em
+  margin-top 2.3em
   text-align center
   font-size 18px
   font-family Arial
-  color #454545
+  color $footer-maintext
 
 </style>
