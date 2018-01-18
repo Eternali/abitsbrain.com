@@ -71,9 +71,12 @@ export default {
   margin-left 50%
   margin-top -0.5em
   font-size 3.6em
-  font-family MercadoOne
+  font-family 'SupermercadoOne-Regular'
   text-align center
   color $title-color
+  
+h2
+  color $link-primary
 
 a
   color $link-primary
