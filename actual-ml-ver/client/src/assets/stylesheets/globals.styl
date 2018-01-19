@@ -10,3 +10,32 @@
 
 // footer
 $footer-height = 120px
+
+// custom base style classes
+
+// base bubble class
+[class*='bubble-']
+  width 50%
+  
+[class*='bubble-']:after
+  content ''
+  display block
+  width 100%
+  height 0
+  border none
+  outline none
+  padding-bottom 100%
+  border-radius 50%
+
+// base material button classes
+[class*='cb-']
+  border-radius 50%
+  transition 0.2s
+  text-align center
+  
+[class*='cb-']:after
+  box-shadow 0 6px 10px 0 rgba(0, 0, 0, 0.3)
+  &:hover
+    cursor pointer
+    box-shadow 0 8px 15px 0 rgba(0,0,0,0.3)
+    background-color lighten($title-background-light, 10%)

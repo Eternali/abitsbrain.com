@@ -6,9 +6,8 @@
           div.col-sm
           div.col-sm
             div.title
-              div.bubble-title
+              div.bubble-cb-title
                 h1 {{ title }}  
-            h2 {{ subtitle }}
           div.col-sm
         div.footer-push
 
@@ -24,12 +23,24 @@ export default {
   },
   name: 'Home',
   metaInfo: {
-    title: 'Abitsbrain | Home'
+    title: 'Abitsbrain | Home',
+    link: [
+      { rel: 'favicon', href: '@logo.png' }
+    ]
   },
   data () {
     return {
       title: 'A Bit\'s Brain',
-      subtitle: 'Welcome to Abitsbrain.com'
+      categories: [
+        {
+          'name': 'Supervised learning',
+          'sub-categories': [
+            {
+
+            }
+          ]
+        }
+      ]
     }
   }
 }
@@ -45,29 +56,15 @@ export default {
 .wrapper
   min-height "calc(100vh - %s)" % $footer-height
   
-// base bubble class
-[class*="bubble-"]
-  width 50%
-  
-[class*="bubble-"]:after
-  content ""
-  display block
-  width 100%
-  height 0
-  padding-bottom 100%
-  border-radius 50%
-  box-shadow 0 4px 8px 0 rgba(0, 0, 0, 0.2)
-
 .title
   width 50%
   margin 2% auto
 
-.bubble-title:after
+.bubble-cb-title:after
   margin-left 50%
-  background "radial-gradient(%s 5%, %s 75%)" % ($title-background-light $title-background-dark)
-  border 1px solid $title-background-border
+  background "radial-gradient(%s 20%, %s 90%, %s 95%, #000 100%)" % ($title-background-light $title-background-dark $title-background-border)
 
-.bubble-title h1
+.bubble-cb-title h1
   float left
   width 100%
   padding-top 50%
