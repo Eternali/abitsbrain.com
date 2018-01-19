@@ -23,6 +23,9 @@ export default {
     'main-footer': Footer
   },
   name: 'Home',
+  metaInfo: {
+    title: 'Abitsbrain | Home'
+  },
   data () {
     return {
       title: 'A Bit\'s Brain',
@@ -41,7 +44,7 @@ export default {
 
 .wrapper
   min-height "calc(100vh - %s)" % $footer-height
-
+  
 // base bubble class
 [class*="bubble-"]
   width 50%
@@ -56,7 +59,8 @@ export default {
   box-shadow 0 4px 8px 0 rgba(0, 0, 0, 0.2)
 
 .title
-  transform scale(0.7)
+  width 50%
+  margin 2% auto
 
 .bubble-title:after
   margin-left 50%
@@ -70,13 +74,13 @@ export default {
   line-height 1em
   margin-left 50%
   margin-top -0.5em
-  font-size 3.6em
+  font-size 3.2em
   font-family 'SupermercadoOne-Regular'
   text-align center
   color $title-color
   
 h2
-  color $link-primary
+  color $subtitle-color
 
 a
   color $link-primary
