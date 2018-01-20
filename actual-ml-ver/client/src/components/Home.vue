@@ -60,21 +60,24 @@ export default {
   width 50%
   margin 2% auto
 
-.bubble-cb-title:after
-  margin-left 50%
+.bubble-cb-title
+  margin 0 auto
   background "radial-gradient(%s 20%, %s 90%, %s 95%, #000 100%)" % ($title-background-light $title-background-dark $title-background-border)
 
 .bubble-cb-title h1
-  float left
+  float left // don't remove (will break title bubble)
   width 100%
   padding-top 50%
   line-height 1em
-  margin-left 50%
   margin-top -0.5em
   font-size 3.2em
   font-family 'SupermercadoOne-Regular'
   text-align center
   color $title-color
+  pointer-events none
+  
+.bubble-cb-title.active
+  translateX -50%
   
 h2
   color $subtitle-color

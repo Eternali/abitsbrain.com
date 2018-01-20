@@ -43,11 +43,10 @@ $footer-height = 120px
 [class*='cb-']
   border-radius 50%
   transition 0.2s
+  box-shadow 0 6px 10px 0 rgba(0, 0, 0, 0.3)
   text-align center
   
-[class*='cb-']:after
-  box-shadow 0 6px 10px 0 rgba(0, 0, 0, 0.3)
-  &:hover
-    cursor pointer
-    box-shadow 0 8px 15px 0 rgba(0,0,0,0.3)
-    background-color lighten($title-background-light, 10%)
+[class*='cb-']:hover
+  box-shadow 0 8px 15px 0 rgba(0, 0, 0, 0.3)
+  filter brightness(110%)
+    
