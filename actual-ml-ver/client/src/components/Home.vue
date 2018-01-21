@@ -6,7 +6,7 @@
           div.col-sm
           div.col-sm
             div.title
-              div.bubble-cb-title
+              div.bubble-cb-title(:class='{ active: titleClicked }' @click='titleClicked = !titleClicked')
                 h1 {{ title }}  
           div.col-sm
         div.footer-push
@@ -30,6 +30,7 @@ export default {
   },
   data () {
     return {
+      // central menu data
       title: 'A Bit\'s Brain',
       categories: [
         {
@@ -40,7 +41,9 @@ export default {
             }
           ]
         }
-      ]
+      ],
+      // menu activations
+      titleClicked: false
     }
   }
 }
@@ -50,11 +53,11 @@ export default {
 <style scoped lang="stylus">
 .home
   min-height 100%
-  background $home-background
+  background $primary-background
   text-align center
 
 .wrapper
-  min-height "calc(100vh - %s)" % $footer-height
+  min-height 'calc(100vh - %s)' % $footer-height
   
 .title
   width 50%
@@ -62,7 +65,8 @@ export default {
 
 .bubble-cb-title
   margin 0 auto
-  background "radial-gradient(%s 20%, %s 90%, %s 95%, #000 100%)" % ($title-background-light $title-background-dark $title-background-border)
+  background 'radial-gradient(%s 20%, %s 90%, %s 95%, #000 100%)' % ($primary-light $primary-color $primary-dark)
+  transition transform cubic-bezier(0.53, -0.19, 0.5, 1.25) 0.8s
 
 .bubble-cb-title h1
   float left // don't remove (will break title bubble)
@@ -73,11 +77,12 @@ export default {
   font-size 3.2em
   font-family 'SupermercadoOne-Regular'
   text-align center
-  color $title-color
+  color $title-on-primary-light
   pointer-events none
   
-.bubble-cb-title.active
-  translateX -50%
+.active
+  transform translateY(75%)
+  background 'radial-gradient(%s 20%, %s 90%, %s 95%, #000 100%)' % ($title-background-light $title-background-dark $title-background-border)
   
 h2
   color $subtitle-color
