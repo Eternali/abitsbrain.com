@@ -1,3 +1,5 @@
 Vue-Version/node_modules/
 abitsbrain.wsgi
 actual-ml-ver/abitsbrain/node_modules
+actual-ml-ver/client/node_modules
+actual-ml-ver/server/node_modules
