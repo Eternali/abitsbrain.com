@@ -7,7 +7,8 @@
           div.col-sm
             div.title
               div.bubble-cb-title(:class='{ active: titleClicked }' @click='titleClicked = !titleClicked')
-                h1 {{ title }}  
+                h1 {{ title }}
+                  h2 {{ beginNotiText}}
           div.col-sm
         div.footer-push
 
@@ -32,6 +33,7 @@ export default {
     return {
       // central menu data
       title: 'A Bit\'s Brain',
+      beginNotiText: 'asdf',
       categories: [
         {
           'name': 'Supervised learning',
@@ -79,6 +81,18 @@ export default {
   text-align center
   color $title-on-primary-light
   pointer-events none
+  
+// .bubble-cb-title h2
+//   float left
+//   width 100%
+//   padding-top 75%
+//   line-height 1em
+//   margin-top -0.5em
+//   font-size 2.2em
+//   font-family 'SupermercadoOne-Regular'
+//   text-align center
+//   color $title-on-primary-light
+//   pointer-events none
   
 .active
   transform translateY(75%)
