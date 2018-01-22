@@ -87,7 +87,8 @@ module.exports = {
         stylus: {
           import: [
             path.resolve(__dirname, '../src/assets/stylesheets/colors.styl'),
-            path.resolve(__dirname, '../src/assets/stylesheets/globals.styl')
+            path.resolve(__dirname, '../src/assets/stylesheets/globals.styl'),
+            path.resolve(__dirname, '../src/assets/stylesheets/keyframes.styl')
           ]
         }
       }

@@ -6,9 +6,11 @@
           div.col-sm
           div.col-sm
             div.title
-              div.bubble-cb-title(:class='{ active: titleClicked }' @click='titleClicked = !titleClicked')
+              // @mouseover/mouseout='var = val / expression'
+              div.bubble-cb-title(:class='{ active: mainEnabled }'
+                                  @click='mainEnabled = !mainEnabled')
                 h1 {{ title }}
-                  h2 {{ beginNotiText}}
+                  h2(v-if='!mainEnabled') {{ beginNotiText }}
           div.col-sm
         div.footer-push
 
@@ -33,7 +35,7 @@ export default {
     return {
       // central menu data
       title: 'A Bit\'s Brain',
-      beginNotiText: 'asdf',
+      beginNotiText: 'begin',
       categories: [
         {
           'name': 'Supervised learning',
@@ -45,7 +47,7 @@ export default {
         }
       ],
       // menu activations
-      titleClicked: false
+      mainEnabled: false
     }
   }
 }
@@ -68,7 +70,8 @@ export default {
 .bubble-cb-title
   margin 0 auto
   background 'radial-gradient(%s 20%, %s 90%, %s 95%, #000 100%)' % ($primary-light $primary-color $primary-dark)
-  transition transform cubic-bezier(0.53, -0.19, 0.5, 1.25) 0.8s
+  transition ease-background-gradient 0.8s ease-in-out
+  transition transform 0.8s cubic-bezier(0.53, -0.19, 0.5, 1.25)
 
 .bubble-cb-title h1
   float left // don't remove (will break title bubble)
@@ -82,17 +85,19 @@ export default {
   color $title-on-primary-light
   pointer-events none
   
-// .bubble-cb-title h2
-//   float left
-//   width 100%
-//   padding-top 75%
-//   line-height 1em
-//   margin-top -0.5em
-//   font-size 2.2em
-//   font-family 'SupermercadoOne-Regular'
-//   text-align center
-//   color $title-on-primary-light
-//   pointer-events none
+.bubble-cb-title h2
+  font-size 0.6em
+  display inherit !important
+  animation-duration 2s
+  animation-name ease-fade
+  animation-iteration-count infinite
+  // animation-direction alternate
+  
+
+.bubble-cb-title h2[style*='display: none;']
+  opacity 0
+  pointer-events none
+  user-select none
   
 .active
   transform translateY(75%)
