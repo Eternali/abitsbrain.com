@@ -6,11 +6,12 @@
           div.col-sm
           div.col-sm
             div.title
-              // @mouseover/mouseout='var = val / expression'
               div.bubble-cb-title(:class='{ active: mainEnabled }'
+                                  @mouseover='titleHovered = true'
+                                  @mouseout='titleHovered = false'
                                   @click='mainEnabled = !mainEnabled')
                 h1 {{ title }}
-                  h2(v-if='!mainEnabled') {{ beginNotiText }}
+                  h2(:class='{flashing: !titleHovered}' v-if='!mainEnabled') {{ beginNotiText }}
           div.col-sm
         div.footer-push
 
@@ -47,6 +48,7 @@ export default {
         }
       ],
       // menu activations
+      titleHovered: false,
       mainEnabled: false
     }
   }
@@ -70,7 +72,6 @@ export default {
 .bubble-cb-title
   margin 0 auto
   background 'radial-gradient(%s 20%, %s 90%, %s 95%, #000 100%)' % ($primary-light $primary-color $primary-dark)
-  transition ease-background-gradient 0.8s ease-in-out
   transition transform 0.8s cubic-bezier(0.53, -0.19, 0.5, 1.25)
 
 .bubble-cb-title h1
@@ -88,11 +89,13 @@ export default {
 .bubble-cb-title h2
   font-size 0.6em
   display inherit !important
+  opacity 1
+
+.bubble-cb-title h2.flashing
   animation-duration 2s
-  animation-name ease-fade
+  animation-name ease-fade(1)
   animation-iteration-count infinite
-  // animation-direction alternate
-  
+  animation-direction alternate  
 
 .bubble-cb-title h2[style*='display: none;']
   opacity 0
@@ -101,7 +104,8 @@ export default {
   
 .active
   transform translateY(75%)
-  background 'radial-gradient(%s 20%, %s 90%, %s 95%, #000 100%)' % ($title-background-light $title-background-dark $title-background-border)
+  animation ease-background-gradient($primary-light $primary-dark $primary-dark $title-background-light $title-background-dark $title-background-border) 0.4s infinite forward
+  // background 'radial-gradient(%s 20%, %s 90%, %s 95%, #000 100%)' % ($title-background-light $title-background-dark $title-background-border)
   
 h2
   color $subtitle-color

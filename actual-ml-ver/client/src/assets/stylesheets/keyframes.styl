@@ -1,13 +1,20 @@
-@keyframes ease-fade
-	0%
-		opacity 0
-	50%
-		opacity 1
-	100%
-		opacity 0
+@keyframes ease-fade(start_opacity)
+  from
+    opacity start_opacity
+  to
+    opacity 1-start_opacity
+  //   if (start_opacity == 1)
+  //     opacity 1
+  //   else
+  //     opacity 0
+  // to
+  //   if (start_opacity == 1)
+  //     opacity 0
+  //   else
+  //     opacity 1
 
-@keyframes ease-background-gradient(@first_light, @first_dark, @first_border, @second_light, @second_dark, @second_border)
-	0%
-    background radial-gradient(@first_light 20%, @first_dark 90%, @first_border 95%, #000 100%)
+@keyframes ease-background-gradient(first_light first_dark first_border second_light second_dark second_border)
+  0%
+    background 'radial-gradient(%s 20%, %s 90%, %s 95%, #000 100%)' % (first_light first_dark first_border)
   100%
-    background radial-gradient(@second_light 20%, @second_dark 90%, @second_border 95%, #000 100%)
+    background 'radial-gradient(%s 20%, %s 90%, %s 95%, #000 100%)' % (second_light second_dark second_border)
