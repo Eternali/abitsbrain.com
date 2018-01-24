@@ -90,10 +90,14 @@ export default {
   font-size 0.6em
   display inherit !important
   opacity 1
+  // fader(@opacity)
+  // animation 0.8s easeFade 1 alternate
 
 .bubble-cb-title h2.flashing
-  animation-duration 2s
-  animation-name ease-fade(1)
+  opacity 1
+  fader(@opacity)
+  animation-duration 1.6s
+  animation-name easeFade
   animation-iteration-count infinite
   animation-direction alternate  
 
@@ -104,7 +108,11 @@ export default {
   
 .active
   transform translateY(75%)
-  animation ease-background-gradient($primary-light $primary-dark $primary-dark $title-background-light $title-background-dark $title-background-border) 0.4s infinite forward
+  // backgroundGradienter($primary-light, $primary-dark, $primary-dark, $title-background-light, $title-background-dark, $title-background-border)
+  // animation-duration 0.8s
+  // animation-name easeBackgroundGradient
+  // animation-iteration-count 1
+  // animation-direction linear
   // background 'radial-gradient(%s 20%, %s 90%, %s 95%, #000 100%)' % ($title-background-light $title-background-dark $title-background-border)
   
 h2
