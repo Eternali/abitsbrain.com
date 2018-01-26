@@ -2,18 +2,18 @@
   div.home
     div.wrapper
       div.container
-        div.row
-          div.col-sm
-          div.col-sm
-            div.title
-              div.bubble-cb-title(:class='{ active: mainEnabled }'
-                                  @mouseover='titleHovered = true'
-                                  @mouseout='titleHovered = false'
-                                  @click='mainEnabled = !mainEnabled')
-                h1 {{ title }}
-                  h2(:class='{flashing: !titleHovered}' v-if='!mainEnabled') {{ beginNotiText }}
-          div.col-sm
-        div.footer-push
+        div.title
+          div.bubble-cb-title(:class='{ active: mainEnabled }'
+                                @mouseover='titleHovered = true'
+                                @mouseout='titleHovered = false'
+                                @click='mainEnabled = !mainEnabled')
+            h1 {{ title }}
+              h2(:class='{flashing: !titleHovered}' v-if='!mainEnabled') {{ beginNotiText }}
+        div.categories
+          transition-group(name='radialButtons' tag='div')
+            span(v-if='mainEnabled' v-for='cat in categories' :key='cat.name' class='category')
+              div {{ cat.name }}
+      div.footer-push
 
     main-footer
 </template>
@@ -40,9 +40,15 @@ export default {
       categories: [
         {
           'name': 'Supervised learning',
-          'sub-categories': [
+          'categories': [
             {
-
+              'name': 'Unsupervised Learning'
+            },
+            {
+              'name': 'Supervised Learning'
+            },
+            {
+              'name': 'Reinforcement Learning'
             }
           ]
         }
@@ -63,8 +69,9 @@ export default {
   text-align center
 
 .wrapper
+  margin 0
   min-height 'calc(100vh - %s)' % $footer-height
-  
+
 .title
   width 50%
   margin 2% auto
@@ -85,7 +92,7 @@ export default {
   text-align center
   color $title-on-primary-light
   pointer-events none
-  
+
 .bubble-cb-title h2
   font-size 0.6em
   display inherit !important
@@ -99,13 +106,13 @@ export default {
   animation-duration 1.6s
   animation-name easeFade
   animation-iteration-count infinite
-  animation-direction alternate  
+  animation-direction alternate
 
 .bubble-cb-title h2[style*='display: none;']
   opacity 0
   pointer-events none
   user-select none
-  
+
 .active
   transform translateY(75%)
   // backgroundGradienter($primary-light, $primary-dark, $primary-dark, $title-background-light, $title-background-dark, $title-background-border)
@@ -114,12 +121,27 @@ export default {
   // animation-iteration-count 1
   // animation-direction linear
   // background 'radial-gradient(%s 20%, %s 90%, %s 95%, #000 100%)' % ($title-background-light $title-background-dark $title-background-border)
-  
+
 h2
   color $subtitle-color
 
-a
-  color $link-primary
+.categories
+  margin-top 5%
+
+.radialButtons-enter-active, .radialButtons-leave-active
+  transition opacity 0.8s
+  transition-delay 0.8s
+
+.radialButtons-enter, .radialButtons-leave-to
+  opacity 0
+
+.category-enter-active, .category-leave-active
+  transition opacity 0.8s
+
+.category
+
+.category
+
 
 .footer-push
   height $footer-height

@@ -9,13 +9,18 @@ export default {
   name: 'Footer',
   data () {
     return {
-      copyright: '&copy; Copyright 2018 Conrad Heidebrecht',
+      copyright: `&copy; Copyright ${this.getCurDate().getYear() + 1900} Conrad Heidebrecht`,
       links: [
         {
           icon: 'fa-github',
           href: 'https://github.com/eternali'
         }
       ]
+    }
+  },
+  methods: {
+    getCurDate() {
+      return new Date();
     }
   }
 }
